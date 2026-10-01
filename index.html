@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0c1811">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Наш год ❤">
+<title>Наш год ❤</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="intro-open">
+<div id="hearts"></div>
+<div id="burst"></div>
+<div id="snow"></div>
+<div id="progress-bar" class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+
+<!-- INTRO / GIFT -->
+<div id="intro" class="intro">
+  <div class="intro-inner">
+    <p class="intro-eyebrow">11 июля · год спустя</p>
+    <div class="gift" id="gift" role="button" tabindex="0" aria-label="открыть подарок">
+      <div class="gift-glow"></div>
+      <div class="gift-box"></div>
+      <div class="gift-lid"></div>
+      <div class="gift-bow"></div>
+      <div class="gift-heart">❤</div>
+    </div>
+    <h1 class="intro-title">Для тебя,<br>любовь моя</h1>
+    <p class="intro-hint" id="intro-hint">нажми, чтобы открыть</p>
+  </div>
+</div>
+
+<!-- INTRO MONTAGE (быстрая вспышка фото после открытия подарка) -->
+<div id="gift-video" class="gv" aria-hidden="true">
+  <img id="gv-montage" class="gv-montage" alt="" aria-hidden="true">
+  <button id="gv-skip" class="gv-skip" type="button" aria-label="пропустить">пропустить →</button>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner reveal">
+    <p class="eyebrow" id="hero-eyebrow">11 июля 2025 · Топь</p>
+    <h1 class="title">Наш&nbsp;год</h1>
+    <p class="subtitle" id="hero-dates"></p>
+    <p class="hero-note" id="hero-sub"></p>
+    <p class="hero-read-time">~7 минут, чтобы прожить наш год · листай медленно, солнце</p>
+    <p class="hero-meet" id="hero-meet"></p>
+    <img class="hero-mascot reveal" src="assets/mascots/couple-top.jpg"
+         alt="мы вдвоём на Топи" loading="eager">
+    <p class="hero-time-echo" id="hero-time-echo" hidden></p>
+    <p class="hero-countdown" id="hero-countdown"></p>
+    <div class="scroll-hint">листай вниз ↓</div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section story" id="story">
+  <h2 class="reveal">Как всё началось</h2>
+  <img class="story-mascot reveal" src="assets/mascots/couple-hug.jpg" alt="мы" loading="lazy">
+  <div class="story-text reveal" id="story-text"></div>
+</section>
+
+<!-- THEN & NOW -->
+<section class="section then-now-section" id="then-now">
+  <h2 class="reveal">Тогда и сейчас</h2>
+  <p class="section-sub reveal">один и тот же год, взгляни, как мы выросли</p>
+  <div class="tn-wrap reveal">
+    <figure class="tn-card tn-then">
+      <img src="assets/photos/004.jpg" alt="тогда" loading="lazy">
+      <figcaption><span class="tn-tag">тогда</span>ноябрь 2025</figcaption>
+    </figure>
+    <div class="tn-arrow" aria-hidden="true">→</div>
+    <figure class="tn-card tn-now">
+      <img src="assets/photos/062.jpg" alt="сейчас" loading="lazy">
+      <figcaption><span class="tn-tag">сейчас</span>июль 2026</figcaption>
+    </figure>
+  </div>
+  <p class="tn-caption reveal">разница в паре месяцев — а кажется, что мы знаем друг друга всю жизнь</p>
+</section>
+
+<!-- BIG NUMBERS -->
+<section class="section" id="numbers">
+  <h2 class="reveal">Если посчитать всё…</h2>
+  <div class="grid grid-4" id="big-numbers"></div>
+</section>
+
+<!-- BALANCE -->
+<section class="section" id="balance">
+  <h2 class="reveal">Кто больше писал</h2>
+  <div class="balance reveal" id="balance-bars"></div>
+  <p class="caption reveal" id="balance-caption"></p>
+</section>
+
+<!-- TIMELINE -->
+<section class="section" id="timeline">
+  <h2 class="reveal">Наш год по месяцам</h2>
+  <div class="chart reveal" id="month-chart"></div>
+  <p class="caption reveal" id="timeline-caption"></p>
+</section>
+
+<!-- CLOCK -->
+<section class="section" id="clock">
+  <h2 class="reveal">Мы — совы 🌙</h2>
+  <div class="chart chart-hours reveal" id="hour-chart"></div>
+  <p class="caption reveal" id="clock-caption"></p>
+</section>
+
+<!-- LOVE WORDS -->
+<section class="section" id="love">
+  <h2 class="reveal">Слова любви</h2>
+  <div class="love-grid reveal" id="love-words"></div>
+</section>
+
+<!-- HER WORDS / словечки -->
+<section class="section" id="her-words">
+  <h2 class="reveal">Твои словечки</h2>
+  <p class="section-sub reveal">слова, по которым тебя всегда узнаю</p>
+  <div class="hw-grid reveal" id="her-words-grid"></div>
+</section>
+
+<!-- FOUND POEM (стихотворение, собранное из её собственных слов) -->
+<section class="section found-poem-section" id="found-poem">
+  <h2 class="reveal">Найдено в твоих словах</h2>
+  <p class="section-sub reveal">я ничего не придумал — это всё ты, просто собранное в одно</p>
+  <div class="fp-poem reveal" id="fp-poem"></div>
+</section>
+
+<!-- EMOJI -->
+<section class="section" id="emoji">
+  <h2 class="reveal">Язык эмодзи</h2>
+  <div class="emoji-row reveal" id="emoji-row"></div>
+</section>
+
+<!-- STREAK -->
+<section class="section highlight" id="streak">
+  <div class="reveal">
+    <div class="streak-num" id="streak-num">0</div>
+    <p class="streak-label">дней подряд без единого пропуска</p>
+    <p class="caption" id="streak-dates"></p>
+  </div>
+</section>
+
+<!-- REACTIONS & EXTRAS -->
+<section class="section" id="extras">
+  <h2 class="reveal">И ещё немного нас</h2>
+  <div class="grid grid-3 reveal" id="extra-cards"></div>
+</section>
+
+<!-- MILESTONES -->
+<section class="section" id="milestones">
+  <h2 class="reveal">Первые разы</h2>
+  <div class="timeline-list reveal" id="milestones-list"></div>
+</section>
+
+<!-- ABOUT HER / LOVES -->
+<section class="section loves-section" id="loves">
+  <h2 class="reveal">Это всё про тебя, Лена</h2>
+  <p class="section-sub reveal">твои маленькие радости, которые я запомнил</p>
+  <div class="loves reveal" id="loves-grid"></div>
+  <img class="loves-cat reveal" src="assets/mascots/murzik.jpg" alt="Мурзик" loading="lazy">
+</section>
+
+<!-- CONFESSIONS / самые личные строки -->
+<section class="section confessions-section" id="confessions">
+  <h2 class="reveal">Слова, которые остались со мной</h2>
+  <p class="section-sub reveal">не только счастливые моменты — вот что было настоящим</p>
+  <div class="confessions reveal" id="confessions-grid"></div>
+</section>
+
+<!-- PLACES -->
+<section class="section places-section" id="places">
+  <h2 class="reveal">Наши места</h2>
+  <p class="section-sub reveal">точки, где мы делали свой год</p>
+  <div class="places reveal" id="places-grid"></div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery">
+  <h2 class="reveal">Мгновения этого года</h2>
+  <div class="gallery reveal" id="gallery-grid"></div>
+  <p class="caption reveal" id="gallery-caption"></p>
+</section>
+
+<!-- WORD CLOUD -->
+<section class="section" id="cloud">
+  <h2 class="reveal">Из чего сделан наш год</h2>
+  <img class="cloud-img reveal" id="cloud-img" src="wordcloud.png" alt="облако слов"
+       onerror="this.style.display='none'">
+</section>
+
+<!-- CLOSING / LETTER -->
+<section class="section closing" id="closing">
+  <div class="reveal letter">
+    <h2 class="closing-title">Письмо тебе</h2>
+    <div class="letter-body priv-blur" id="closing-text"></div>
+    <p class="letter-sign">Твой Андрей</p>
+
+    <!-- голосовое сообщение: показывается сам, только если файл реально есть -->
+    <div class="voice-note priv-media" id="voice-note" hidden>
+      <button class="voice-play" id="voice-play" type="button" aria-label="слушать голосовое">▶</button>
+      <div class="voice-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <span class="voice-label">голосом, солнце</span>
+      <audio id="voice-audio" preload="metadata" src="assets/audio/voice-letter.m4a"></audio>
+    </div>
+
+    <img class="letter-mascot" src="assets/mascots/couple-home.jpg" alt="мы вдвоём" loading="lazy">
+    <div class="letter-heart" id="letter-heart" role="button" tabindex="0" aria-label="❤">❤</div>
+    <p class="letter-secret priv-blur" id="letter-secret" hidden></p>
+    <p class="letter-ps reveal priv-blur" id="letter-ps"></p>
+  </div>
+</section>
+
+<!-- SHAREABLE CARD -->
+<section class="section share-section" id="share">
+  <h2 class="reveal">На память</h2>
+  <p class="section-sub reveal">сохрани себе — маленькая открытка про нас</p>
+  <div class="share-card reveal" id="share-card">
+    <div class="sc-glow"></div>
+    <p class="sc-eyebrow">11 июля 2025 — 11 июля 2026</p>
+    <h3 class="sc-title">Наш год</h3>
+    <div class="sc-row" id="sc-row"></div>
+    <p class="sc-footer">Андрей <span class="sc-heart">❤</span> Лена</p>
+  </div>
+  <button class="sc-save" id="sc-save" type="button">сохранить картинку</button>
+</section>
+
+<!-- HUG (тёплое приземление в самом конце) -->
+<section class="section hug-section" id="hug">
+  <p class="hug-eyebrow reveal">и последнее, на сегодня</p>
+  <div class="hug-circle reveal" id="hug-circle" role="button" tabindex="0" aria-label="обнять">
+    <span class="hug-ring"></span>
+    <span class="hug-ring"></span>
+    <span class="hug-core">❤</span>
+  </div>
+  <p class="hug-label reveal" id="hug-label">нажми и подержи</p>
+</section>
+
+<!-- MILESTONE PHOTO VIEW -->
+<div id="ms-photo-view" class="ms-photo-view" aria-hidden="true">
+  <button class="lb-close" id="ms-photo-close" aria-label="закрыть">&times;</button>
+  <img id="ms-photo-img" class="ms-photo-img" src="" alt="">
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lb-close" aria-label="закрыть">&times;</button>
+  <button class="lb-nav lb-prev" id="lb-prev" aria-label="назад">&#8249;</button>
+  <img class="lb-img" id="lb-img" src="" alt="">
+  <button class="lb-nav lb-next" id="lb-next" aria-label="вперёд">&#8250;</button>
+  <div class="lb-quote priv-blur" id="lb-quote"></div>
+  <div class="lb-caption" id="lb-caption"></div>
+</div>
+
+<!-- MUSIC (two tracks: Mad World → Into Black at the emotional peak) -->
+<audio id="bg-music-a" src="assets/audio/mad_world.m4a" loop preload="auto"></audio>
+<audio id="bg-music-b" src="assets/audio/into_black.m4a" loop preload="none"></audio>
+<button id="music-toggle" class="music-toggle" aria-label="музыка вкл/выкл" title="музыка вкл/выкл">
+  <span class="mt-icon">♪</span>
+  <span class="mt-track" id="mt-track"></span>
+</button>
+
+<script src="data.js"></script>
+<script src="photos.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
